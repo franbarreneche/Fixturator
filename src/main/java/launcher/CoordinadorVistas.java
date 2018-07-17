@@ -6,9 +6,11 @@ import java.util.Map;
 import com.airhacks.afterburner.views.FXMLView;
 
 import presentation.equipo.EquipoView;
+import presentation.general.GeneralPresenter;
 import presentation.general.GeneralView;
 import presentation.jugador.JugadorView;
 import presentation.menu.MenuView;
+import presentation.seleccionTorneo.SeleccionTorneoView;
 import presentation.torneo.TorneoView;
 
 public class CoordinadorVistas {
@@ -31,6 +33,8 @@ public class CoordinadorVistas {
 		vistas.put("abmequipo", abmequipo);
 		TorneoView abmtorneo = new TorneoView();
 		vistas.put("abmtorneo", abmtorneo);
+		SeleccionTorneoView seltorneo = new SeleccionTorneoView();
+		vistas.put("selecciontorneo", seltorneo);
 	}
 	
 	public static CoordinadorVistas getInstance() {
@@ -39,6 +43,11 @@ public class CoordinadorVistas {
 	
 	public FXMLView getView(String key) {
 		return vistas.get(key);
+	}
+	
+	public void irVistaadministrarTorneo() {
+		FXMLView vista = vistas.get("principal");
+		((GeneralPresenter) vista.getPresenter()).mostrarABMTorneo();
 	}
     
     

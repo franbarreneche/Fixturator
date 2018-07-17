@@ -73,6 +73,9 @@ public class TorneoPresenter implements Initializable{
     private ChoiceBox<String> comboDia;
     
     @FXML
+    private ChoiceBox<String> comboTemporada;
+    
+    @FXML
     private VBox panelListaPartidos;
     
     @FXML
@@ -94,6 +97,9 @@ public class TorneoPresenter implements Initializable{
 		
 		String[] dias = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
 		this.comboDia.setItems(FXCollections.observableArrayList(dias));
+		
+		String[] temporadas = {"Apertura","Clausura","Verano"};
+		this.comboTemporada.setItems(FXCollections.observableArrayList(temporadas));
 	}
 
     private void prepararBajaModificacion() {
@@ -101,6 +107,9 @@ public class TorneoPresenter implements Initializable{
     	this.labelID.setText(t.getId().toString());
 		this.textNombre.setText(t.getNombre());;
 		this.textSede.setText(t.getSede());
+		this.textAnio.setText(t.getAnio()+"");
+		this.comboDia.getSelectionModel().select(t.getDiaJuego());
+		this.comboTemporada.getSelectionModel().select(t.getTemporada());
 		this.botonAgregarTorneo.setDisable(true);
 		this.botonEditarTorneo.setDisable(false);
 		this.botonEliminarTorneo.setDisable(false);
@@ -129,7 +138,10 @@ public class TorneoPresenter implements Initializable{
     void agregarTorneo(ActionEvent event) {
 		String nombre = this.textNombre.getText();
 		String sede = this.textSede.getText();
-		Torneo nuevo = new Torneo(); nuevo.setNombre(nombre);nuevo.setSede(sede);
+		int anio = Integer.parseInt(this.textAnio.getText());
+		String dia = this.comboDia.getSelectionModel().getSelectedItem();
+		String temporada = this.comboTemporada.getSelectionModel().getSelectedItem();
+		Torneo nuevo = new Torneo(); nuevo.setNombre(nombre);nuevo.setSede(sede);nuevo.setAnio(anio);nuevo.setDiaJuego(dia);nuevo.setTemporada(temporada);
 		controller.altaTorneo(nuevo);
 		mostrarMensaje("El torneo "+nombre+" ha sido agregado exitosamente.");
 		prepararBajaModificacion();
@@ -141,6 +153,9 @@ public class TorneoPresenter implements Initializable{
     	Torneo t = controller.getSeleccionado();
     	t.setNombre(this.textNombre.getText());
     	t.setSede(this.textSede.getText());
+    	t.setAnio(Integer.parseInt(this.textAnio.getText()));
+    	t.setDiaJuego(this.comboDia.getSelectionModel().getSelectedItem());
+    	t.setTemporada(this.comboTemporada.getSelectionModel().getSelectedItem());
     	controller.modificacionTorneo(t);
     	mostrarMensaje("El torneo "+t.getNombre()+" ha sido modificado exitosamente.");
 		prepararBajaModificacion();

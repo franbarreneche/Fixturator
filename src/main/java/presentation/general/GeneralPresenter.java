@@ -58,13 +58,18 @@ public class GeneralPresenter implements Initializable{
 						
 			FXMLView vistaMenu = CoordinadorVistas.getInstance().getView("menu");
 			panel_Menu.getChildren().add(vistaMenu.getViewWithoutRootContainer());
-			FXMLView vistaJugador = CoordinadorVistas.getInstance().getView("abmtorneo");
+			FXMLView vistaJugador = CoordinadorVistas.getInstance().getView("selecciontorneo");
 			panel_Principal.getChildren().add(vistaJugador.getViewWithoutRootContainer());
 			
 		}
 		
 		public void actualizarBarraEstado(String mensaje) {
 			this.labelStatus.setText(mensaje);
+		}
+		
+		public void mostrarABMTorneo() {
+			this.panel_Principal.getChildren().clear();
+			this.panel_Principal.getChildren().add(CoordinadorVistas.getInstance().getView("abmtorneo").getViewWithoutRootContainer());
 		}
 		
 		

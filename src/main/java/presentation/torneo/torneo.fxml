@@ -67,6 +67,12 @@
                                     <ChoiceBox fx:id="comboDia" prefWidth="150.0" />
                                  </children>
                               </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="169.0" spacing="10.0">
+                                 <children>
+                                    <Label prefWidth="50.0" text="Temporada" />
+                                    <ChoiceBox fx:id="comboTemporada" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
                                     <Button fx:id="botonAgregarTorneo" mnemonicParsing="false" onAction="#agregarTorneo" text="Agregar" />

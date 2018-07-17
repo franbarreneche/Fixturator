@@ -18,6 +18,8 @@ public class Sistema {
 		servicios.put("abmequipo", se);
 		ServicioABMTorneo st = new ServicioABMTorneo();
 		servicios.put("abmtorneo", st);
+		ServicioSeleccionTorneo seltorneo = new ServicioSeleccionTorneo();
+		servicios.put("selecciontorneo", seltorneo);
 	}
 	
 	

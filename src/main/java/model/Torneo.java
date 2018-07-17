@@ -24,6 +24,9 @@ public class Torneo {
 	@Reference(lazy=true)
 	protected List<Equipo> equipos;
 	protected String sede;
+	protected String diaJuego;
+	protected int anio;
+	protected String temporada;
 	
 	//constructores
 	public Torneo() {
@@ -65,6 +68,18 @@ public class Torneo {
 		this.sede = s;
 	}
 	
+	public void setAnio(int a) {
+		this.anio = a;
+	}
+	
+	public void setDiaJuego(String dia) {
+		this.diaJuego = dia;
+	}
+	
+	public void setTemporada(String temp) {
+		this.temporada = temp;
+	}
+	
 	//getters
 	public Partido getPartido(int pos) {
 		return this.partidos.get(pos);
@@ -92,6 +107,18 @@ public class Torneo {
 	
 	public ObjectId getId() {
 		return this.id;
+	}
+	
+	public String getDiaJuego() {
+		return this.diaJuego;
+	}
+	
+	public String getTemporada() {
+		return this.temporada;
+	}
+	
+	public int getAnio() {
+		return this.anio;
 	}
 	
 	public List<Jugador> getJugadoresEquipo(String equipo) {
