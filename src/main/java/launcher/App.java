@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.airhacks.afterburner.injection.Injector;
+import com.airhacks.afterburner.views.FXMLView;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -29,7 +30,7 @@ public class App extends Application {
         //Injector.setConfigurationSource(customProperties::get);
 
         //System.setProperty("happyEnding", " Enjoy the flight!");
-        GeneralView appView = new GeneralView();
+        FXMLView appView = CoordinadorVistas.getInstance().getView("principal");
         Scene scene = new Scene(appView.getView());
         
         final String uri = getClass().getResource("app.css").toExternalForm();

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,32 +11,44 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.jugador.JugadorPresenter">
    <children>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0">
+      <VBox prefHeight="247.0" prefWidth="250.0" spacing="10.0">
          <children>
             <Label text="JUGADOR" />
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
                   <Label text="ID:" />
-                  <TextField editable="false" />
+                  <TextField fx:id="idJugador" editable="false" maxWidth="1.7976931348623157E308" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="10.0">
                <children>
                   <Label text="Nombre:" />
-                  <TextField fx:id="nombreJugador" />
+                  <TextField fx:id="nombreJugador" maxWidth="1.7976931348623157E308" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
                   <Label text="DNI:" />
-                  <TextField />
+                  <TextField fx:id="dniJugador" maxWidth="1.7976931348623157E308" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="117.0" spacing="10.0">
+               <children>
+                  <Label text="Email:" />
+                  <TextField fx:id="emailJugador" maxWidth="1.7976931348623157E308" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text="Agregar" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Editar" />
-                  <Button layoutX="71.0" layoutY="10.0" mnemonicParsing="false" text="Eliminar" />
+                  <Label text="Fecha Nac:" />
+                  <DatePicker fx:id="fechaNacJugador" prefHeight="25.0" prefWidth="117.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0">
+               <children>
+                  <Button fx:id="botonAgregar" mnemonicParsing="false" onAction="#agregarJugador" text="Agregar" />
+                  <Button fx:id="botonEditar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#editarJugador" text="Editar" />
+                  <Button fx:id="botonEliminar" layoutX="71.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarJugador" text="Eliminar" />
                </children>
             </HBox>
          </children>
